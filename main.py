@@ -47,7 +47,7 @@ def command_handler(cmd):
             print(f"{cl.yellow}[*] Exiting...{cl.reset}")
             exit()
 
-        elif cmd == "net_scan":
+        elif cmd == "net-scan":
             compiled_scan()
     
         elif cmd == "port_scan":
