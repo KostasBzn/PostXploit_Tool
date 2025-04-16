@@ -50,9 +50,6 @@ def command_handler(cmd):
         elif cmd == "net-scan":
             compiled_scan()
     
-        elif cmd == "port_scan":
-            print(f"{cl.cyan}[~] Scanning for open ports on discovered hosts...{cl.reset}")
-
         elif cmd == "enum_services":
             print(f"{cl.cyan}[~] Enumerating services like SMB, SSH, RDP...{cl.reset}")
 
