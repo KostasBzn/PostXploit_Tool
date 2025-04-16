@@ -41,7 +41,6 @@ def arp_scan():
         print(f"{cl.red}[!] ARP scan failed: {e}{cl.reset}")
         return []
     
-
 def port_scan(ip, port_min, port_max):
     open_ports = []
     for port in range(port_min, port_max + 1):
@@ -101,4 +100,3 @@ def compiled_scan():
             print(f"{cl.green}[+] Open ports on {host['ip']}:{cl.reset} {', '.join(map(str, open_ports))}\n")
         else:
             print(f"{cl.yellow}[!] No open ports found on {host['ip']}{cl.reset}\n")
-    pass
