@@ -14,9 +14,7 @@ PostXploit/
 └── README.md
 
 
-# 🛠️ Internal Network Enumeration & Exploitation Tool - To-Do Plan
-
-# PostXploit
+# Plan
 
 ## ✅ 1. Setup
 - [ ] Set up virtual environment
