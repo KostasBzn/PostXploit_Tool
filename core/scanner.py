@@ -52,7 +52,7 @@ def port_scan(ip, port_min, port_max):
     return open_ports
 
 def compiled_scan():
-    # Step 1: Get network info
+    # Get network info
     print(f"\n{cl.cyan}[~] Gathering network information...{cl.reset}")
     interface, ip, netmask, gateway = get_network_info()
     if not ip:
@@ -64,7 +64,7 @@ def compiled_scan():
     print(f"  {cl.teal}- Netmask:{cl.reset} {netmask}")
     print(f"  {cl.teal}- Gateway:{cl.reset} {gateway}")
     
-    # Step 2: ARP scan
+    # ARP scan
     hosts = arp_scan()
     
     if not hosts:
@@ -75,7 +75,7 @@ def compiled_scan():
     for i, host in enumerate(hosts, 1):
         print(f"  {cl.purple}{i}.{cl.reset} {cl.teal}IP:{cl.reset} {host['ip']}\t  {cl.teal}MAC:{cl.reset} {host['mac']}")
     
-    # Step 3: Port scanning
+    # Port scanning
     port_range_pattern = re.compile("([0-9]+)-([0-9]+)")
     port_min, port_max = 0, 65535
     while True:
