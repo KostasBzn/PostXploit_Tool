@@ -12,7 +12,6 @@ def help_menu():
     | clear                  | Clear the screen and display banner                      |
     |------------------------|----------------------------------------------------------|
     | net-scan               | Scan local network for active hosts (ARP scan)           |
-    | port_scan              | Scan open ports on discovered hosts                      |
     | enum_services          | Enumerate common services (SMB, RDP, SSH, etc.)          |
     | enum_users             | Try to extract user info from shares/SMB                 |
     |------------------------|----------------------------------------------------------|
