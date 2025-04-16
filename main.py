@@ -48,7 +48,6 @@ def command_handler(cmd):
             exit()
 
         elif cmd == "net_scan":
-            print(f"{cl.cyan}[~] Running ARP scan to discover hosts on the local network...{cl.reset}")
             compiled_scan()
     
         elif cmd == "port_scan":

@@ -20,7 +20,7 @@ PostXploit/
 
 ## ✅ 1. Setup
 - [x] Set up virtual environment
-- [ ] Install required Python packages:
+- [x] Install required Python packages:
   - impacket
   - scapy
   - paramiko
@@ -28,9 +28,9 @@ PostXploit/
   - flask (optional, for web GUI)
 
 ## ✅ 2. Basic Network Scanning
-- [ ] Get local IP address, subnet mask, and gateway
-- [ ] Discover live hosts (ARP or ping sweep)
-- [ ] Scan for open ports on discovered hosts
+- [x] Get local IP address, subnet mask, and gateway
+- [x] Discover live hosts (ARP or ping sweep)
+- [x] Scan for open ports on discovered hosts
 
 ## ✅ 3. Service Enumeration
 - [ ] Identify OS (via banner grabbing, TTL, etc.)

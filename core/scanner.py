@@ -21,18 +21,17 @@ def get_network_info():
 
 def arp_scan():
     while True:
-        ip_range = input(f"{cl.blue}[>] Enter IP range to scan (e.g., 192.168.1.0/24): {cl.reset}").strip()
+        ip_range = input(f"\n{cl.blue}[>] Enter IP range to scan (e.g., 192.168.0.0/24): {cl.reset}").strip()
         try:
-            network = ipaddress.ip_network(ip_range, strict=False)
+            ipaddress.ip_network(ip_range, strict=False)
             break
         except ValueError:
             print(f"{cl.red}[!] Invalid IP range format.{cl.reset}")
     
     hosts = list()
-    print("net",network)
-    print("ipr",ip_range)
+    print(f"\n{cl.cyan}[~] Discovering live hosts...{cl.reset}")
     try:
-        arp = ARP(pdst=network)
+        arp = ARP(pdst=ip_range)
         ether = Ether(dst="ff:ff:ff:ff:ff:ff")
         result = srp(ether/arp, timeout=3, verbose=0)[0]
         for sent, received in result:
@@ -43,24 +42,8 @@ def arp_scan():
         return []
     
 
-def port_scan(ip):
+def port_scan(ip, port_min, port_max):
     open_ports = []
-    port_min, port_max = 0, 65535
-    port_range_pattern = re.compile("([0-9]+)-([0-9]+)")
-    while True:
-        port_range = input(f"{cl.blue}[>] Enter port range (e.g., 20-80 | leave empty for all ports): {cl.reset}").strip()
-        if not port_range:
-            break
-        port_range_valid = port_range_pattern.search(port_range.replace(" ",""))
-        if port_range_valid and 0 <= port_min <= port_max <= 65535:
-            port_min = int(port_range_valid.group(1))
-            port_max = int(port_range_valid.group(2))
-            if 0 <= port_min <= port_max <= 65535:
-               break
-        else:
-            print(f"{cl.red}[!] Invalid port range. Use format 'min-max' (0-65535){cl.reset}")
-
-    print(f"{cl.yellow}[*] Scanning ports {port_min}-{port_max}...{cl.reset}")
     for port in range(port_min, port_max + 1):
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             sock.settimeout(1)
@@ -76,31 +59,46 @@ def compiled_scan():
         return
     
     print(f"{cl.green}[+] Found network info:{cl.reset}")
-    print(f"  - Interface: {interface}")
-    print(f"  - IP Address: {ip}")
-    print(f"  - Netmask: {netmask}")
-    print(f"  - Gateway: {gateway}")
+    print(f"  {cl.teal}- Interface:{cl.reset} {interface}")
+    print(f"  {cl.teal}- IP Address:{cl.reset} {ip}")
+    print(f"  {cl.teal}- Netmask:{cl.reset} {netmask}")
+    print(f"  {cl.teal}- Gateway:{cl.reset} {gateway}")
     
     # Step 2: ARP scan
     hosts = arp_scan()
-    print(f"\n{cl.cyan}[~] Discovering live hosts...{cl.reset}")
-
+    
     if not hosts:
         print(f"{cl.yellow}[!] No live hosts found.{cl.reset}")
         return
     
-    print(f"\n{cl.green}[+] Found {len(hosts)} live host(s):{cl.reset}")
+    print(f"{cl.green}[+] Found {len(hosts)} live host(s):{cl.reset}")
     for i, host in enumerate(hosts, 1):
-        print(f"  {i}. IP: {host['ip']} - MAC: {host['mac']}")
+        print(f"  {cl.purple}{i}.{cl.reset} {cl.teal}IP:{cl.reset} {host['ip']}\t  {cl.teal}MAC:{cl.reset} {host['mac']}")
     
     # Step 3: Port scanning
-    print(f"\n{cl.cyan}[~] Starting port scanning...{cl.reset}")
+    port_range_pattern = re.compile("([0-9]+)-([0-9]+)")
+    port_min, port_max = 0, 65535
+    while True:
+        port_range = input(f"\n{cl.blue}[>] Enter port range (e.g., 20-80 | leave empty for all ports): {cl.reset}").strip()
+        if not port_range:
+            break
+        port_range_valid = port_range_pattern.search(port_range.replace(" ",""))
+        if port_range_valid and 0 <= port_min <= port_max <= 65535:
+            port_min = int(port_range_valid.group(1))
+            port_max = int(port_range_valid.group(2))
+            if 0 <= port_min <= port_max <= 65535:
+               break
+        else:
+            print(f"{cl.red}[!] Invalid port range. Use format 'min-max' (0-65535){cl.reset}")
+
+    print(f"{cl.cyan}[*] Scanning ports {port_min}-{port_max}...{cl.reset}")
+
     for host in hosts:
         print(f"\n{cl.yellow}[*] Scanning {host['ip']}...{cl.reset}")
-        open_ports = port_scan(host['ip'])
+        open_ports = port_scan(host['ip'], port_min, port_max)
         
         if open_ports:
-            print(f"{cl.green}[+] Open ports on {host['ip']}:{cl.reset} {', '.join(map(str, open_ports))}")
+            print(f"{cl.green}[+] Open ports on {host['ip']}:{cl.reset} {', '.join(map(str, open_ports))}\n")
         else:
             print(f"{cl.yellow}[!] No open ports found on {host['ip']}{cl.reset}")
     pass
