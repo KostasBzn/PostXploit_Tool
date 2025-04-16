@@ -100,5 +100,5 @@ def compiled_scan():
         if open_ports:
             print(f"{cl.green}[+] Open ports on {host['ip']}:{cl.reset} {', '.join(map(str, open_ports))}\n")
         else:
-            print(f"{cl.yellow}[!] No open ports found on {host['ip']}{cl.reset}")
+            print(f"{cl.yellow}[!] No open ports found on {host['ip']}{cl.reset}\n")
     pass
