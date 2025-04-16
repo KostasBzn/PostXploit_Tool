@@ -1,5 +1,6 @@
 from core.colors import Colors as cl
 from core.help import help_menu
+from core.scanner import compiled_scan
 import os
 from datetime import datetime
 
@@ -26,6 +27,12 @@ ______         _  __   __      _       _ _
     #print(f"{cl.cyan}[~] Started at > [{datetime.now().strftime("%H:%M:%S")}]{cl.reset}")
     print(f"{cl.yellow}[$] Type 'help' for the available commands.{cl.reset}\n\n")
 
+def check_sudo():
+    """Verify sudo privileges."""
+    if not "SUDO_UID" in os.environ.keys():
+        print(f"{cl.red}[!] Please run the tool with sudo privileges.{cl.reset}")
+        exit()
+
 def command_handler(cmd):
     try:
         if not cmd:
@@ -40,9 +47,10 @@ def command_handler(cmd):
             print(f"{cl.yellow}[*] Exiting...{cl.reset}")
             exit()
 
-        elif cmd == "net_discover":
+        elif cmd == "net_scan":
             print(f"{cl.cyan}[~] Running ARP scan to discover hosts on the local network...{cl.reset}")
-
+            compiled_scan()
+    
         elif cmd == "port_scan":
             print(f"{cl.cyan}[~] Scanning for open ports on discovered hosts...{cl.reset}")
 
@@ -82,6 +90,7 @@ def command_handler(cmd):
 
 def main():
     try:
+        check_sudo()
         banner()
         while True:
             cmd = input(f"{cl.blue}>>> {cl.reset}").lower()

@@ -1,5 +1,7 @@
 PostXploit/
 ├── core/
+│   ├── colors.py            # color palete
+│   ├── help.py              # help menu
 │   ├── scanner.py           # Network scanning functions
 │   ├── enumerator.py        # Service & host info gathering
 │   ├── exploit_smb.py       # SMB enumeration + attack scripts
@@ -17,7 +19,7 @@ PostXploit/
 # Plan
 
 ## ✅ 1. Setup
-- [ ] Set up virtual environment
+- [x] Set up virtual environment
 - [ ] Install required Python packages:
   - impacket
   - scapy
@@ -54,6 +56,6 @@ PostXploit/
 - [ ] Maintain reverse shell with autorun
 
 ## ✅ 8. Command & Control Interface
-- [ ] Build a simple CLI menu or web dashboard
+- [x] Build a simple CLI menu or web dashboard
 - [ ] Track compromised hosts and their status
 - [ ] Log actions and outputs for each host
