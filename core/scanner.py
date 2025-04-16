@@ -91,7 +91,7 @@ def compiled_scan():
         else:
             print(f"{cl.red}[!] Invalid port range. Use format 'min-max' (0-65535){cl.reset}")
 
-    print(f"\n{cl.cyan}[*] Scanning ports {port_min}-{port_max}...{cl.reset}")
+    print(f"\n{cl.cyan}[~] Scanning ports {port_min}-{port_max}...{cl.reset}")
 
     for host in hosts:
         print(f"{cl.yellow}[*] Scanning {host['ip']}...{cl.reset}")
