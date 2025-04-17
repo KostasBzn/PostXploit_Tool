@@ -12,8 +12,7 @@ def help_menu():
     | clear                  | Clear the screen and display banner                      |
     |------------------------|----------------------------------------------------------|
     | net-scan               | Scan local network for active hosts (ARP scan)           |
-    | enum_services          | Enumerate common services (SMB, RDP, SSH, etc.)          |
-    | enum_users             | Try to extract user info from shares/SMB                 |
+    | enum-services          | Enumerate common services (SMB, RDP, SSH, etc.)          |
     |------------------------|----------------------------------------------------------|
     | exploit_smb            | Exploit vulnerable SMB shares (e.g., EternalBlue)        |
     | brute_ssh              | Brute-force SSH login using a credentials list           |
@@ -27,7 +26,7 @@ def help_menu():
 # EASTER EGGS
 
 def what():
-    print("(╯°□°）╯︵ ┻━┻ WHAT HAVE YOU DONE !? (╯°□°）╯︵ ┻━┻")
+    print(f"{cl.teal}(╯°□°）╯︵ ┻━┻ WHAT HAVE YOU DONE !? (╯°□°）╯︵ ┻━┻{cl.reset}\n")
 
 def yamete():
     logo = cl.teal + r"""
@@ -91,6 +90,6 @@ def art():
     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣶⣤⣉⣛⠻⠇⢠⣿⣾⣿⡄⢻⡇
     ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⣿⣦⣤⣾⣿⣿⣿⣿⣆⠁
 
-  🈵 STOP INCREASING VERBOSITY (PUNK!) 🈵⠀
+      🈵 STOP DOING THAT (PUNK!) 🈵⠀
 """ + cl.reset + "\n"
     print(logo)

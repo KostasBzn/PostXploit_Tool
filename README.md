@@ -25,7 +25,6 @@ PostXploit/
   - scapy
   - paramiko
   - netifaces
-  - flask (optional, for web GUI)
 
 ## ✅ 2. Basic Network Scanning
 - [x] Get local IP address, subnet mask, and gateway
@@ -33,9 +32,9 @@ PostXploit/
 - [x] Scan for open ports on discovered hosts
 
 ## ✅ 3. Service Enumeration
-- [ ] Identify OS (via banner grabbing, TTL, etc.)
-- [ ] Detect services (SMB, RDP, SSH, HTTP, etc.)
-- [ ] Enumerate SMB shares and users
+- [x] Identify OS (via banner grabbing, TTL, etc.)
+- [x] Detect services (SMB, RDP, SSH, HTTP, etc.)
+- [x] Enumerate SMB shares and users
 
 ## ✅ 4. Exploitation
 - [ ] Attempt anonymous/null SMB login

@@ -1,6 +1,7 @@
 from core.colors import Colors as cl
 from core.help import help_menu
 from core.scanner import compiled_scan
+from core.enumerator import service_enumeration
 import os
 from datetime import datetime
 
@@ -50,11 +51,8 @@ def command_handler(cmd):
         elif cmd == "net-scan":
             compiled_scan()
     
-        elif cmd == "enum_services":
-            print(f"{cl.cyan}[~] Enumerating services like SMB, SSH, RDP...{cl.reset}")
-
-        elif cmd == "enum_users":
-            print(f"{cl.cyan}[~] Extracting user info from open shares or SMB responses...{cl.reset}")
+        elif cmd == "enum-services":
+            service_enumeration()
 
         elif cmd == "exploit_smb":
             print(f"{cl.cyan}[~] Attempting SMB vulnerability exploitation...{cl.reset}")
