@@ -94,12 +94,12 @@ def enum_smb(ip):
 
 def enum_ftp(ip):
     """Enumerate FTP service: attempt anonymous login and list files."""
-    # Our goal gere is to try anonymus login if the port 21 is open
+    # Our goal here is to try anonymus login if the port 21 is open
     # FTP stands for File Transfer Protocol, typically it runs on port 21 and it is used to download, upload or browse files on a remote server.
     results = {
         'anonymous_login': False,
         'files': [],
-        'banner': '' #
+        'banner': '' 
     }
 
     try:
@@ -114,7 +114,7 @@ def enum_ftp(ip):
         # we try anonymous login
         ftp.login(user='anonymous', passwd='anonymous@domain.com')
         results['anonymous_login'] = True
-        # some public/missconfigured ftps allow anonymus login
+        # some public/missconfigured ftps allow anonymous login
         # here comes the easter egg
         print(f"{cl.green}[+] Anonymous FTP login successful{cl.reset}")
         time.sleep(1)
