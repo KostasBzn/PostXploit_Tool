@@ -74,7 +74,7 @@ def enum_smb(ip):
 
         # nmap SMB scripts
         nm = nmap.PortScanner()
-        nm.scan(ip, arguments='--script smb-enum-shares,smb-enum-users -p 445') # nmap scripts(built in) they try to lust the folders and the users
+        nm.scan(ip, arguments='--script smb-enum-shares,smb-enum-users -p 445') # nmap scripts(built in) they try to list the folders and the users
 
         scripts = nm[ip]['tcp'][445].get('script', {})
 
