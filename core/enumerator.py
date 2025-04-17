@@ -45,7 +45,7 @@ def detect_services(ip, port_min, port_max):
     try:
         nm.scan(ip, ports=nmap_range, arguments='-sV --version-intensity 3') 
         # -sV the common nmap command to detect services versions
-        # Intencity can be adjusted (0-9). Higher means slower/more accuracy, slowwer the oposite.
+        # Intencity can be adjusted (0-9). Higher means slower/more accuracy, lowwer the oposite.
         for proto in nm[ip].all_protocols(): # loops through all protocols like tcp, upd and so on
             for port in nm[ip][proto]:
                 service = nm[ip][proto][port]['name']
