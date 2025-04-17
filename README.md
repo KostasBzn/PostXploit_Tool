@@ -18,7 +18,7 @@ PostXploit/
 
 # Plan
 
-## ✅ 1. Setup
+## ✅ 1. Setup - done
 - [x] Set up virtual environment
 - [x] Install required Python packages:
   - impacket
@@ -26,12 +26,12 @@ PostXploit/
   - paramiko
   - netifaces
 
-## ✅ 2. Basic Network Scanning
+## ✅ 2. Basic Network Scanning - done
 - [x] Get local IP address, subnet mask, and gateway
 - [x] Discover live hosts (ARP or ping sweep)
 - [x] Scan for open ports on discovered hosts
 
-## ✅ 3. Service Enumeration
+## ✅ 3. Service Enumeration - done
 - [x] Identify OS (via banner grabbing, TTL, etc.)
 - [x] Detect services (SMB, RDP, SSH, HTTP, etc.)
 - [x] Enumerate SMB shares and users
