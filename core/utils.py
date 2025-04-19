@@ -55,9 +55,9 @@ def port_range():
         return port_min, port_max
 
 
-def open_file():
+def open_file(wordlist):
     file_path = askopenfilename(
-        title="Select a wordlist",
+        title=wordlist,
         filetypes=[("TXT", "*.txt"), ("All files", "*.*")]
     )
     if not file_path:
