@@ -57,7 +57,6 @@ def command_handler(cmd):
 
         elif cmd == "brute-smb":
             brute_force_smb()
-            print(f"{cl.cyan}[~] Starting SMB brute-force with credentials list...{cl.reset}")
 
         elif cmd == "brute-ssh":
             brute_force_ssh()
