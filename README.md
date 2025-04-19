@@ -1,21 +1,3 @@
-PostXploit/
-├── core/
-│   ├── colors.py            # color palete
-│   ├── help.py              # help menu
-│   ├── scanner.py           # Network scanning functions
-│   ├── enumerator.py        # Service & host info gathering
-│   ├── exploit_smb.py       # SMB enumeration + attack scripts
-│   ├── lateral_move.py      # Lateral movement mechanisms
-│   ├── persistence.py       # Persistence mechanisms (optional)
-│   ├── creds.py             # Credential dumping tools
-├── utils/
-│   ├── helpers.py           # Shared utility functions
-│   ├── config.py            # Configuration, IP ranges, credentials
-├── main.py                  # Entry point / CLI interface
-├── requirements.txt         # Dependencies (e.g., impacket, paramiko)
-└── README.md
-
-
 # Plan
 
 ## ✅ 1. Setup - done
