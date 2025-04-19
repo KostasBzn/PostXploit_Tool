@@ -38,7 +38,7 @@ def os_fingerprint(ip):
 
             # We get the OS fingerprinting via nmap
             nm = nmap.PortScanner()
-            nm.scan(ip, arguments='-O') # -0 is the common nmap command for the OS detection
+            nm.scan(ip, arguments='-O') # -O is the common nmap command for the OS detection
             os_info = nm[ip].get('osclass', [{}])[0].get('osfamily', os_guess)
 
             return f"{os_info} (TTL: {ttl})"
