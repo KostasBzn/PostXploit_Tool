@@ -60,7 +60,6 @@ def command_handler(cmd):
 
         elif cmd == "brute-ssh":
             brute_force_ssh()
-            print(f"{cl.cyan}[~] Starting SSH brute-force with credentials list...{cl.reset}")
 
         elif cmd == "vuln-scan":
             scan_vulnerabilities()
