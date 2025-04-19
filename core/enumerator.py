@@ -1,3 +1,17 @@
+"""
+Network Enumerator Module
+
+Performs deeper service enumeration with the command enum-services:
+- OS detection via TTL and Nmap fingerprinting
+- Open ports and services versions
+- SMB share and user enumeration
+- FTP service enumeration with anonymous login testing
+
+Note:
+Always ensure proper authorization before running network enumeration.
+Some operations may trigger security alerts on monitored networks.
+"""
+
 from core.colors import Colors as cl
 import socket
 from scapy.all import IP, ICMP, sr1

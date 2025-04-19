@@ -37,7 +37,7 @@ PostXploit/
 - [x] Enumerate SMB shares and users
 
 ## ✅ 4. Exploitation
-- [ ] Attempt anonymous/null SMB login
+- [x] Attempt anonymous/null SMB login
 - [ ] Brute-force SMB or SSH login with wordlist
 - [ ] Scan for known vulnerabilities (e.g. EternalBlue)
 

@@ -1,3 +1,13 @@
+"""
+Network Scanner
+
+Performs the network scanning with the command net-scan:
+- Network interface detection (IP, netmask, gateway)
+- ARP scanning for live host discovery
+- TCP port scanning of discovered hosts
+"""
+
+
 from core.colors import Colors as cl
 from core.utils import arp_scan, port_scan, port_range
 import netifaces
