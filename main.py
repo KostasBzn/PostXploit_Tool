@@ -63,8 +63,7 @@ def command_handler(cmd):
 
         elif cmd == "vuln-scan":
             scan_vulnerabilities()
-            print(f"{cl.cyan}[~] Scanning for known vulnerabilities...{cl.reset}")
-
+       
         elif cmd == "dump_creds":
             print(f"{cl.cyan}[~] Dumping credentials from target system...{cl.reset}")
 
