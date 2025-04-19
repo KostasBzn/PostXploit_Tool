@@ -1,8 +1,10 @@
 from core.colors import Colors as cl
 from scapy.all import ARP, Ether, srp
+from tkinter.filedialog import askopenfilename
 import ipaddress
 import socket
 import re
+import os
 
 def arp_scan():
     while True:
@@ -51,3 +53,15 @@ def port_range():
             else:
                 print(f"{cl.red}[!] Invalid port range. Use format 'min-max' (0-65535){cl.reset}")
         return port_min, port_max
+
+
+def open_file():
+    file_path = askopenfilename(
+        title="Select a wordlist",
+        filetypes=[("TXT", "*.txt"), ("All files", "*.*")]
+    )
+    if not file_path:
+        print("\nNo file selected. Exiting...")
+        exit()
+    file_name = os.path.basename(file_path)
+    return file_name, file_path

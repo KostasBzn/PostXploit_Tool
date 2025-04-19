@@ -2,6 +2,7 @@ from core.colors import Colors as cl
 from core.help import help_menu
 from core.scanner import compiled_scan
 from core.enumerator import service_enumeration
+from core.exploitation import brute_force_smb, brute_force_ssh, scan_vulnerabilities
 import os
 from datetime import datetime
 
@@ -54,11 +55,17 @@ def command_handler(cmd):
         elif cmd == "enum-services":
             service_enumeration()
 
-        elif cmd == "exploit_smb":
-            print(f"{cl.cyan}[~] Attempting SMB vulnerability exploitation...{cl.reset}")
+        elif cmd == "brute-smb":
+            brute_force_smb()
+            print(f"{cl.cyan}[~] Starting SMB brute-force with credentials list...{cl.reset}")
 
-        elif cmd == "brute_ssh":
+        elif cmd == "brute-ssh":
+            brute_force_ssh()
             print(f"{cl.cyan}[~] Starting SSH brute-force with credentials list...{cl.reset}")
+
+        elif cmd == "vuln-scan":
+            scan_vulnerabilities()
+            print(f"{cl.cyan}[~] Scanning for known vulnerabilities...{cl.reset}")
 
         elif cmd == "dump_creds":
             print(f"{cl.cyan}[~] Dumping credentials from target system...{cl.reset}")

@@ -14,8 +14,9 @@ def help_menu():
     | net-scan               | Scan local network for active hosts (ARP scan)           |
     | enum-services          | Enumerate common services (SMB, RDP, SSH, etc.)          |
     |------------------------|----------------------------------------------------------|
-    | exploit_smb            | Exploit vulnerable SMB shares (e.g., EternalBlue)        |
-    | brute_ssh              | Brute-force SSH login using a credentials list           |
+    | brute-smb              | SMB brute-force with credentials list                    |
+    | brute-ssh              | SSH brute-force with credentials list                    |
+    | vuln-scan              | Scan for known vulnerabilities (e.g. EternalBlue)        |
     | dump_creds             | Dump stored or cached credentials from target            |
     | lateral_move           | Move laterally using captured credentials                |
     | persistence            | Establish backdoor/persistence on compromised host       |
