@@ -38,8 +38,8 @@ PostXploit/
 
 ## ✅ 4. Exploitation
 - [x] Attempt anonymous/null SMB login
-- [ ] Brute-force SMB or SSH login with wordlist
-- [ ] Scan for known vulnerabilities (e.g. EternalBlue)
+- [x] Brute-force SMB or SSH login with wordlist
+- [x] Scan for known vulnerabilities (e.g. EternalBlue)
 
 ## ✅ 5. Credential Dumping
 - [ ] Use impacket tools (secretsdump, samrdump)
