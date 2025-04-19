@@ -36,7 +36,7 @@ PostXploit/
 - [x] Detect services (SMB, RDP, SSH, HTTP, etc.)
 - [x] Enumerate SMB shares and users
 
-## ✅ 4. Exploitation
+## ✅ 4. Exploitation - done
 - [x] Attempt anonymous/null SMB login
 - [x] Brute-force SMB or SSH login with wordlist
 - [x] Scan for known vulnerabilities (e.g. EternalBlue)
